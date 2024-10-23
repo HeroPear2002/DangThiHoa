@@ -28,7 +28,7 @@ public class MoveState : IState
         }
         Debug.Log("axis " + playerController.xAxis);
         Debug.Log("x : " + playerController.rb.velocity.x);
-        if (playerController.rb.velocity.x == 0 )
+        if ((playerController.rb.velocity.x == 0 && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
         {
             playerController.stateMachine.TransitionTo(playerController.stateMachine.idleState);
         }

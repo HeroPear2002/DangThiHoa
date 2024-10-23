@@ -27,7 +27,7 @@ public class JumpState : IState
         //    Debug.Log("transittion to jumpmiddle");
         //    playerController.stateMachine.TransitionTo(playerController.stateMachine.jumpMiddle);
         //}
-        if (playerController.rb.velocity.y < 0)
+        if (playerController.rb.velocity.y < 0 && ((!Input.GetKeyDown(KeyCode.LeftArrow) || !Input.GetKeyDown(KeyCode.RightArrow))))
         {
             playerController.stateMachine.TransitionTo(playerController.stateMachine.fallState);
         }
