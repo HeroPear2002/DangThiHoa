@@ -24,9 +24,13 @@ public class FallState : IState
         // Debug.Log("Move state update");
         Debug.Log(playerController.IsGrounded());
 
-        if (playerController.rb.velocity.y <= 0 && playerController.IsGrounded())
+        if (playerController.rb.velocity.y <= 0 && playerController.IsGrounded() && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             playerController.stateMachine.TransitionTo(playerController.stateMachine.idleState);
+        }
+        else if (playerController.IsGrounded())
+        {
+            playerController.stateMachine.TransitionTo(playerController.stateMachine.moveState);
         }
 
         //if (playerController.rb.velocity.y <= 0 )
